@@ -222,7 +222,7 @@ MIT License - 詳細は[LICENSE](LICENSE)ファイルを参照
 
 ## クレジット
 
-Developed by Sito Sikino
+Developed by Batannu
 
 ### 使用技術
 - Google Gemini API
