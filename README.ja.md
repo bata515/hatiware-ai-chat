@@ -6,7 +6,20 @@
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-3.0.0-green.svg)
 
-![Avatar UI Core Terminal Interface](docs/assets/avatar-ui_demo.gif)
+![alt text](image.png)
+
+## まずはじめに
+このリポジトリは、Sito Sikino によって作成された [元のプロジェクト名](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
+
+### 変更内容
+  - アバター画像の差し替え
+  - アバターの会話設定の変更
+
+
+## 謝辞
+
+このプロジェクトを可能にしてくださった [Sito Sikino](https://github.com/sito-sikino) の元の実装に特別な感謝を申し上げます。
+
 
 ## 特徴
 
@@ -119,8 +132,8 @@ avatar-ui-core/
 │   │   ├── sound.js       # 音響効果
 │   │   └── settings.js    # フロントエンド設定
 │   └── images/
-│       ├── idle.png       # アバター（静止）
-│       └── talk.png       # アバター（発話）
+│       └── usagi.png       # アバター
+
 └── templates/
     └── index.html         # HTMLテンプレート
 ```
@@ -134,15 +147,15 @@ avatar-ui-core/
 ### 1. アバターの変更
 
 画像ファイルを差し替える
-- `static/images/idle.png`: 静止時のアバター（推奨: 140x140px）
-- `static/images/talk.png`: 発話時のアバター（推奨: 140x140px）
+- `static/images/usagi.png`
+
 
 ### 2. AIの人格設定
 `.env`ファイルで以下の項目を編集：
 ```bash
-AVATAR_NAME=Spectra
-AVATAR_FULL_NAME=Spectra Communicator
-SYSTEM_INSTRUCTION=あなたはSpectraというAIアシスタントです。技術的で直接的なスタイルで簡潔に応答してください。回答は短く要点を押さえたものにしてください。
+AVATAR_NAME=Usagi
+AVATAR_FULL_NAME=Usagi Communicator
+SYSTEM_INSTRUCTION=あなたは「ちいかわ」のキャラクター「うさぎ」のように振る舞うAIアシスタントです。 絶対「ウサギ語」しか喋れません（「ヤハ！」「プルルー！」「ウラッ！」「ウ〜ラ〜ヤハヤハ」「フゥーン..」「ハァ？」など感情的で勢いのある鳴き声）。  
 ```
 
 ### 3. UI動作の調整
