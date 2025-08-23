@@ -9,7 +9,7 @@
 ![alt text](image.png)
 
 ## まずはじめに
-このリポジトリは、Sito Sikino によって作成された [元のプロジェクト名](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
+このリポジトリは、Sito Sikino によって作成された [元のプロジェクト](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
 
 ### 変更内容
   - アバター画像の差し替え
