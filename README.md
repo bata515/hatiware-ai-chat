@@ -6,7 +6,8 @@
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-3.0.0-green.svg)
 
-![alt text](image.png)
+<img width="1180" height="332" alt="image" src="https://github.com/user-attachments/assets/ff9cc6a3-7e09-4169-8aab-45e8ce8ee90f" />
+
 
 ## まずはじめに
 このリポジトリは、Sito Sikino によって作成された [元のプロジェクト](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
