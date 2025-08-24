@@ -23,7 +23,7 @@ app = Flask(__name__)
 if not settings.DEBUG_MODE:
     app.config['PROPAGATE_EXCEPTIONS'] = True
 
-@app.route('/')
+@app.route('/', methods=['GET', 'HEAD'])
 def index():
     """メインページ表示"""
     config = {
