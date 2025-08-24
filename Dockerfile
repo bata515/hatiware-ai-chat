@@ -20,5 +20,5 @@ EXPOSE 5000
 ENV FLASK_ENV=production
 ENV PYTHONPATH=/app
 
-# アプリケーションを起動
-CMD ["python", "app.py"]
+# Gunicornで本番用アプリケーションを起動
+CMD ["gunicorn", "-c", "gunicorn.conf.py", "wsgi:app"]
