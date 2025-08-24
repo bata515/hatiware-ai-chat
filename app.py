@@ -38,4 +38,4 @@ def api_chat():
     return jsonify({'response': response.text})
 
 if __name__ == '__main__':
-    app.run(debug=settings.DEBUG_MODE, port=settings.SERVER_PORT)
+    app.run(host='0.0.0.0', debug=settings.DEBUG_MODE, port=settings.SERVER_PORT)
