@@ -1,47 +1,33 @@
-# Avatar UI Core
+# Htiware AI Chat
 
-クラシックなターミナル調のUIコア。チャットUIからCLI統合まで拡張可能なプロジェクト基盤を提供します。
+クラシックなターミナル調の UI コア。チャット UI から CLI 統合まで拡張可能なプロジェクト基盤を提供します。
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-3.0.0-green.svg)
 
-<img width="1180" height="332" alt="image" src="https://github.com/user-attachments/assets/8f5103ed-32d8-4193-ad66-f7ee204dd95b" />
-
-
-## まずはじめに
-このリポジトリは、Sito Sikino によって作成された [元のプロジェクト名](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
-
-### 変更内容
-  - アバター画像の差し替え
-  - アバターの会話設定の変更
-
-
-## 謝辞
-
-このプロジェクトを可能にしてくださった [Sito Sikino](https://github.com/sito-sikino) の元の実装に特別な感謝を申し上げます。
-
+<img width="1180" height="332" alt="image" src="https://github.com/user-attachments/assets/ff9cc6a3-7e09-4169-8aab-45e8ce8ee90f" />
 
 ## 特徴
 
-- **ターミナルUI** - グリーンオンブラックの古典的ターミナルインターフェース
-- **AIアバター** - 発話同期型のピクセルアートアバター表示
+- **ターミナル UI** - グリーンオンブラックの古典的ターミナルインターフェース
+- **AI アバター** - 発話同期型のピクセルアートアバター表示
 - **タイプライター効果** - 文字単位のリアルタイム表示アニメーション
-- **サウンドエフェクト** - Web Audio APIによるタイピング音生成
+- **サウンドエフェクト** - Web Audio API によるタイピング音生成
 - **完全な設定管理** - すべての動作パラメータを`.env`ファイルで一元管理
 
 ## 基本操作
 
-1. **メッセージ送信**: 画面下部の入力欄にテキストを入力してEnterキー
+1. **メッセージ送信**: 画面下部の入力欄にテキストを入力して Enter キー
 2. **会話履歴**: 自動的にスクロールされる会話履歴を確認
-3. **アバター**: AIの応答中はアバターが応答アニメーション
+3. **アバター**: AI の応答中はアバターが応答アニメーション
 
 ## クイックスタート
 
 ### 必要要件
 
-- Python 3.8以上
-- Google AI Studio APIキー（[取得はこちら](https://aistudio.google.com/app/apikey)）
+- Python 3.8 以上
+- Google AI Studio API キー（[取得はこちら](https://aistudio.google.com/app/apikey)）
 
 ### インストール手順
 
@@ -53,9 +39,9 @@ git clone https://github.com/yourusername/avatar-ui-core.git
 cd avatar-ui-core
 ```
 
-#### 2. Python仮想環境の作成
+#### 2. Python 仮想環境の作成
 
-仮想環境を使用することで、システムのPython環境を汚さずにプロジェクトを実行できます。
+仮想環境を使用することで、システムの Python 環境を汚さずにプロジェクトを実行できます。
 
 ```bash
 # 仮想環境の作成
@@ -89,7 +75,7 @@ cp .env.example .env
 # Windows: copy .env.example .env
 ```
 
-#### 2. APIキーの設定
+#### 2. API キーの設定
 
 テキストエディタで`.env`ファイルを開き、必須項目を設定：
 
@@ -99,7 +85,7 @@ GEMINI_API_KEY=ここに取得したAPIキーを貼り付け
 MODEL_NAME=gemini-2.0-flash  # または gemini-2.5-pro など
 ```
 
-**重要**: `.env`ファイルには機密情報が含まれるため、絶対にGitにコミットしないでください。
+**重要**: `.env`ファイルには機密情報が含まれるため、絶対に Git にコミットしないでください。
 
 ### 起動
 
@@ -109,6 +95,7 @@ python app.py
 ```
 
 起動に成功すると以下のようなメッセージが表示されます：
+
 ```
  * Running on http://127.0.0.1:5000
 ```
@@ -148,19 +135,24 @@ avatar-ui-core/
 ### 1. アバターの変更
 
 画像ファイルを差し替える
-- `static/images/usagi.png`
 
+- `static/images/hatiware_close_mouth.png`
+- `static/images/hatiware_open_mouth.png`
 
-### 2. AIの人格設定
+### 2. AI の人格設定
+
 `.env`ファイルで以下の項目を編集：
+
 ```bash
-AVATAR_NAME=Usagi
-AVATAR_FULL_NAME=Usagi Communicator
+AVATAR_NAME=Htiware
+AVATAR_FULL_NAME=Htiware Communicator
 SYSTEM_INSTRUCTION=あなたは「ちいかわ」のキャラクター「ハチワレ」のように振る舞うAIアシスタントです。喋り方の特徴として、「なんとかなれ〜っ..!」などを多用し、倒置法もくしして喋ります。また基本的にはポジティブな性格です。
 ```
 
-### 3. UI動作の調整
+### 3. UI 動作の調整
+
 `.env`ファイルで各種速度を調整：
+
 ```bash
 # タイピング速度（ミリ秒、小さいほど高速）
 TYPEWRITER_DELAY_MS=30
@@ -170,7 +162,9 @@ MOUTH_ANIMATION_INTERVAL_MS=100
 ```
 
 ### 4. サウンド設定
+
 `.env`ファイルで音響効果をカスタマイズ：
+
 ```bash
 BEEP_FREQUENCY_HZ=600   # 音の高さ（Hz）
 BEEP_VOLUME=0.1         # 音量（0.0-1.0）
@@ -181,38 +175,40 @@ BEEP_DURATION_MS=30     # 音の長さ（ミリ秒）
 
 ## 環境変数一覧
 
-| 変数名 | 説明 | デフォルト値 | 必須 |
-|--------|------|-------------|------|
-| `GEMINI_API_KEY` | Google Gemini APIキー | - | ✅ |
-| `MODEL_NAME` | 使用するGeminiモデル | gemini-2.0-flash | ✅ |
-| **サーバー設定** | | | |
-| `SERVER_PORT` | サーバーポート番号 | 5000 | |
-| `DEBUG_MODE` | デバッグモード有効化 | True | |
-| **アバター設定** | | | |
-| `AVATAR_NAME` | AIアシスタントの名前 | Spectra | |
-| `AVATAR_FULL_NAME` | AIアシスタントのフルネーム | Spectra Communicator | |
-| `AVATAR_IMAGE_IDLE` | 静止時のアバター画像 | idle.png | |
-| `AVATAR_IMAGE_TALK` | 発話時のアバター画像 | talk.png | |
-| **AI性格設定** | | | |
-| `SYSTEM_INSTRUCTION` | AIの人格や応答スタイル | 技術的で簡潔な応答 | |
-| **UI設定** | | | |
-| `TYPEWRITER_DELAY_MS` | タイプライター効果の速度（ミリ秒） | 50 | |
-| `MOUTH_ANIMATION_INTERVAL_MS` | 口パクアニメーション間隔（ミリ秒） | 150 | |
-| **サウンド設定** | | | |
-| `BEEP_FREQUENCY_HZ` | ビープ音の周波数（Hz） | 800 | |
-| `BEEP_DURATION_MS` | ビープ音の長さ（ミリ秒） | 50 | |
-| `BEEP_VOLUME` | ビープ音の音量（0.0-1.0） | 0.05 | |
-| `BEEP_VOLUME_END` | ビープ音終了時の音量 | 0.01 | |
+| 変数名                        | 説明                               | デフォルト値         | 必須 |
+| ----------------------------- | ---------------------------------- | -------------------- | ---- |
+| `GEMINI_API_KEY`              | Google Gemini API キー             | -                    | ✅   |
+| `MODEL_NAME`                  | 使用する Gemini モデル             | gemini-2.0-flash     | ✅   |
+| **サーバー設定**              |                                    |                      |      |
+| `SERVER_PORT`                 | サーバーポート番号                 | 5000                 |      |
+| `DEBUG_MODE`                  | デバッグモード有効化               | True                 |      |
+| **アバター設定**              |                                    |                      |      |
+| `AVATAR_NAME`                 | AI アシスタントの名前              | Spectra              |      |
+| `AVATAR_FULL_NAME`            | AI アシスタントのフルネーム        | Spectra Communicator |      |
+| `AVATAR_IMAGE_IDLE`           | 静止時のアバター画像               | idle.png             |      |
+| `AVATAR_IMAGE_TALK`           | 発話時のアバター画像               | talk.png             |      |
+| **AI 性格設定**               |                                    |                      |      |
+| `SYSTEM_INSTRUCTION`          | AI の人格や応答スタイル            | 技術的で簡潔な応答   |      |
+| **UI 設定**                   |                                    |                      |      |
+| `TYPEWRITER_DELAY_MS`         | タイプライター効果の速度（ミリ秒） | 50                   |      |
+| `MOUTH_ANIMATION_INTERVAL_MS` | 口パクアニメーション間隔（ミリ秒） | 150                  |      |
+| **サウンド設定**              |                                    |                      |      |
+| `BEEP_FREQUENCY_HZ`           | ビープ音の周波数（Hz）             | 800                  |      |
+| `BEEP_DURATION_MS`            | ビープ音の長さ（ミリ秒）           | 50                   |      |
+| `BEEP_VOLUME`                 | ビープ音の音量（0.0-1.0）          | 0.05                 |      |
+| `BEEP_VOLUME_END`             | ビープ音終了時の音量               | 0.01                 |      |
 
 ## 技術スタック
 
 ### バックエンド
-- **Flask 3.0.0** - Webアプリケーションフレームワーク
-- **google-generativeai 0.8.3** - Gemini API統合
+
+- **Flask 3.0.0** - Web アプリケーションフレームワーク
+- **google-generativeai 0.8.3** - Gemini API 統合
 - **python-dotenv 1.0.0** - 環境変数管理
 
 ### フロントエンド
-- **ES6 Modules** - モジュール化されたJavaScript
+
+- **ES6 Modules** - モジュール化された JavaScript
 - **Web Audio API** - ブラウザネイティブ音響生成
 - **CSS3** - モダンなスタイリング
 - **Fira Code** - プログラミング用等幅フォント
@@ -223,13 +219,29 @@ MIT License - 詳細は[LICENSE](LICENSE)ファイルを参照
 
 ## クレジット
 
-Developed by Sito Sikino
+Developed by Batannu
 
 ### 使用技術
+
 - Google Gemini API
-- Flask Framework  
+- Flask Framework
 - Fira Code Font
 
 ---
 
 **注意**: このプロジェクトはエンタメ・創作目的で作成されています。本番環境での使用時は適切なセキュリティ対策を実施してください。
+
+---
+
+## さいごに
+
+このリポジトリは、Sito Sikino によって作成された [元のプロジェクト](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
+
+### 変更内容
+
+- アバター画像の差し替え
+- アバターの会話設定の変更
+
+## 謝辞
+
+このプロジェクトを可能にしてくださった [Sito Sikino](https://github.com/sito-sikino) の元の実装に特別な感謝を申し上げます。
