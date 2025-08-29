@@ -1,6 +1,8 @@
 # Htiware AI Chat
 
-クラシックなターミナル調の UI コア。チャット UI から CLI 統合まで拡張可能なプロジェクト基盤を提供します。
+A classic terminal-style UI core. Provides an extensible project foundation from chat UI to CLI integration.
+
+> **日本語版**: [README.ja.md](README.ja.md) | **English**: README.md
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)
@@ -8,220 +10,219 @@
 
 <img width="1180" height="332" alt="image" src="https://github.com/user-attachments/assets/ff9cc6a3-7e09-4169-8aab-45e8ce8ee90f" />
 
-## 特徴
+## Features
 
-- **ターミナル UI** - グリーンオンブラックの古典的ターミナルインターフェース
-- **AI アバター** - 発話同期型のピクセルアートアバター表示
-- **タイプライター効果** - 文字単位のリアルタイム表示アニメーション
-- **サウンドエフェクト** - Web Audio API によるタイピング音生成
-- **完全な設定管理** - すべての動作パラメータを`.env`ファイルで一元管理
+- **Terminal UI** - Classic green-on-black terminal interface
+- **AI Avatar** - Speech-synchronized pixel art avatar display
+- **Typewriter Effect** - Character-by-character real-time display animation
+- **Sound Effects** - Typing sound generation via Web Audio API
+- **Complete Configuration Management** - Centralized management of all operation parameters via `.env` file
 
-## 基本操作
+## Basic Operations
 
-1. **メッセージ送信**: 画面下部の入力欄にテキストを入力して Enter キー
-2. **会話履歴**: 自動的にスクロールされる会話履歴を確認
-3. **アバター**: AI の応答中はアバターが応答アニメーション
+1. **Send Message**: Enter text in the input field at the bottom of the screen and press Enter
+2. **Chat History**: View automatically scrolling conversation history
+3. **Avatar**: Avatar displays response animation during AI responses
 
-## クイックスタート
+## Quick Start
 
-### 必要要件
+### Requirements
 
-- Python 3.8 以上
-- Google AI Studio API キー（[取得はこちら](https://aistudio.google.com/app/apikey)）
+- Python 3.8 or higher
+- Google AI Studio API key ([Get it here](https://aistudio.google.com/app/apikey))
 
-### インストール手順
+### Installation Steps
 
-#### 1. プロジェクトの取得
+#### 1. Get the Project
 
 ```bash
-# リポジトリのクローン（またはZIPダウンロード後に解凍）
+# Clone the repository (or download and extract ZIP)
 git clone https://github.com/yourusername/avatar-ui-core.git
 cd avatar-ui-core
 ```
 
-#### 2. Python 仮想環境の作成
+#### 2. Create Python Virtual Environment
 
-仮想環境を使用することで、システムの Python 環境を汚さずにプロジェクトを実行できます。
+Using a virtual environment allows you to run the project without polluting your system's Python environment.
 
 ```bash
-# 仮想環境の作成
+# Create virtual environment
 python -m venv venv
 
-# 仮想環境の有効化
+# Activate virtual environment
 # Linux/Mac:
 source venv/bin/activate
-# Windows (コマンドプロンプト):
+# Windows (Command Prompt):
 venv\Scripts\activate
 # Windows (PowerShell):
 venv\Scripts\Activate.ps1
 ```
 
-仮想環境が有効化されると、ターミナルのプロンプトに`(venv)`が表示されます。
+When the virtual environment is activated, `(venv)` will appear in your terminal prompt.
 
-#### 3. 必要なパッケージのインストール
+#### 3. Install Required Packages
 
 ```bash
-# requirements.txtに記載されたパッケージを一括インストール
+# Install packages listed in requirements.txt
 pip install -r requirements.txt
 ```
 
-### 設定
+### Configuration
 
-#### 1. 環境変数ファイルの準備
+#### 1. Prepare Environment Variables File
 
 ```bash
-# テンプレートファイルをコピーして.envファイルを作成
+# Copy template file to create .env file
 cp .env.example .env
 # Windows: copy .env.example .env
 ```
 
-#### 2. API キーの設定
+#### 2. Set API Key
 
-テキストエディタで`.env`ファイルを開き、必須項目を設定：
+Open the `.env` file with a text editor and configure the required items:
 
 ```bash
-# 必須項目のみ変更が必要（他の項目はデフォルト値で動作）
-GEMINI_API_KEY=ここに取得したAPIキーを貼り付け
-MODEL_NAME=gemini-2.0-flash  # または gemini-2.5-pro など
+# Only these required items need to be changed (other items work with default values)
+GEMINI_API_KEY=paste_your_obtained_api_key_here
+MODEL_NAME=gemini-2.0-flash  # or gemini-2.5-pro etc.
 ```
 
-**重要**: `.env`ファイルには機密情報が含まれるため、絶対に Git にコミットしないでください。
+**Important**: The `.env` file contains sensitive information, so never commit it to Git.
 
-### 起動
+### Launch
 
 ```bash
-# アプリケーションの起動
+# Start the application
 python app.py
 ```
 
-起動に成功すると以下のようなメッセージが表示されます：
+When startup is successful, you'll see a message like this:
 
 ```
  * Running on http://127.0.0.1:5000
 ```
 
-ブラウザで `http://localhost:5000` にアクセスしてください。
+Access `http://localhost:5000` in your browser.
 
-## プロジェクト構造
+## Project Structure
 
 ```
 avatar-ui-core/
-├── app.py                  # Flaskアプリケーション本体
-├── settings.py             # 設定管理モジュール
-├── requirements.txt        # Python依存関係
-├── .env.example           # 環境変数テンプレート
+├── app.py                  # Flask application main body
+├── settings.py             # Configuration management module
+├── requirements.txt        # Python dependencies
+├── .env.example           # Environment variables template
 ├── static/
 │   ├── css/
-│   │   └── style.css      # UIスタイル定義
+│   │   └── style.css      # UI style definitions
 │   ├── js/
-│   │   ├── app.js         # メインエントリーポイント
-│   │   ├── chat.js        # チャット機能
-│   │   ├── animation.js   # アニメーション制御
-│   │   ├── sound.js       # 音響効果
-│   │   └── settings.js    # フロントエンド設定
+│   │   ├── app.js         # Main entry point
+│   │   ├── chat.js        # Chat functionality
+│   │   ├── animation.js   # Animation control
+│   │   ├── sound.js       # Sound effects
+│   │   └── settings.js    # Frontend settings
 │   └── images/
-│       └── usagi.png       # アバター
-
+│       └── usagi.png       # Avatar
 └── templates/
-    └── index.html         # HTMLテンプレート
+    └── index.html         # HTML template
 ```
 
-**注意**: `docs/`フォルダには開発時のメモやアセットが含まれており、アプリケーション動作には影響しません。
+**Note**: The `docs/` folder contains development notes and assets and does not affect application operation.
 
-## カスタマイズ方法
+## Customization Methods
 
-すべての設定は`.env`ファイルで調整できます。
+All settings can be adjusted in the `.env` file.
 
-### 1. アバターの変更
+### 1. Change Avatar
 
-画像ファイルを差し替える
+Replace image files:
 
 - `static/images/hatiware_close_mouth.png`
 - `static/images/hatiware_open_mouth.png`
 
-### 2. AI の人格設定
+### 2. AI Personality Settings
 
-`.env`ファイルで以下の項目を編集：
+Edit the following items in the `.env` file:
 
 ```bash
-AVATAR_NAME=Htiware
-AVATAR_FULL_NAME=Htiware Communicator
-SYSTEM_INSTRUCTION=あなたは「ちいかわ」のキャラクター「ハチワレ」のように振る舞うAIアシスタントです。喋り方の特徴として、「なんとかなれ〜っ..!」などを多用し、倒置法もくしして喋ります。また基本的にはポジティブな性格です。
+AVATAR_NAME=Hatiware
+AVATAR_FULL_NAME=Hatiware Communicator
+SYSTEM_INSTRUCTION=You are an AI assistant that behaves like the character "Hachiware" from "Chiikawa". As a speech characteristic, you often use phrases like "nantoka nare~!!" and also speak using inverted word order. You also have a fundamentally positive personality.
 ```
 
-### 3. UI 動作の調整
+### 3. UI Behavior Adjustment
 
-`.env`ファイルで各種速度を調整：
+Adjust various speeds in the `.env` file:
 
 ```bash
-# タイピング速度（ミリ秒、小さいほど高速）
+# Typing speed (milliseconds, smaller = faster)
 TYPEWRITER_DELAY_MS=30
 
-# 口パクアニメーション間隔（ミリ秒）
+# Lip-sync animation interval (milliseconds)
 MOUTH_ANIMATION_INTERVAL_MS=100
 ```
 
-### 4. サウンド設定
+### 4. Sound Settings
 
-`.env`ファイルで音響効果をカスタマイズ：
+Customize sound effects in the `.env` file:
 
 ```bash
-BEEP_FREQUENCY_HZ=600   # 音の高さ（Hz）
-BEEP_VOLUME=0.1         # 音量（0.0-1.0）
-BEEP_DURATION_MS=30     # 音の長さ（ミリ秒）
+BEEP_FREQUENCY_HZ=600   # Sound pitch (Hz)
+BEEP_VOLUME=0.1         # Volume (0.0-1.0)
+BEEP_DURATION_MS=30     # Sound length (milliseconds)
 ```
 
-**注意**: 設定変更後はアプリケーションの再起動が必要です。
+**Note**: Application restart is required after changing settings.
 
-## 環境変数一覧
+## Environment Variables List
 
-| 変数名                        | 説明                               | デフォルト値         | 必須 |
-| ----------------------------- | ---------------------------------- | -------------------- | ---- |
-| `GEMINI_API_KEY`              | Google Gemini API キー             | -                    | ✅   |
-| `MODEL_NAME`                  | 使用する Gemini モデル             | gemini-2.0-flash     | ✅   |
-| **サーバー設定**              |                                    |                      |      |
-| `SERVER_PORT`                 | サーバーポート番号                 | 5000                 |      |
-| `DEBUG_MODE`                  | デバッグモード有効化               | True                 |      |
-| **アバター設定**              |                                    |                      |      |
-| `AVATAR_NAME`                 | AI アシスタントの名前              | Spectra              |      |
-| `AVATAR_FULL_NAME`            | AI アシスタントのフルネーム        | Spectra Communicator |      |
-| `AVATAR_IMAGE_IDLE`           | 静止時のアバター画像               | idle.png             |      |
-| `AVATAR_IMAGE_TALK`           | 発話時のアバター画像               | talk.png             |      |
-| **AI 性格設定**               |                                    |                      |      |
-| `SYSTEM_INSTRUCTION`          | AI の人格や応答スタイル            | 技術的で簡潔な応答   |      |
-| **UI 設定**                   |                                    |                      |      |
-| `TYPEWRITER_DELAY_MS`         | タイプライター効果の速度（ミリ秒） | 50                   |      |
-| `MOUTH_ANIMATION_INTERVAL_MS` | 口パクアニメーション間隔（ミリ秒） | 150                  |      |
-| **サウンド設定**              |                                    |                      |      |
-| `BEEP_FREQUENCY_HZ`           | ビープ音の周波数（Hz）             | 800                  |      |
-| `BEEP_DURATION_MS`            | ビープ音の長さ（ミリ秒）           | 50                   |      |
-| `BEEP_VOLUME`                 | ビープ音の音量（0.0-1.0）          | 0.05                 |      |
-| `BEEP_VOLUME_END`             | ビープ音終了時の音量               | 0.01                 |      |
+| Variable Name                 | Description                            | Default Value        | Required |
+| ----------------------------- | -------------------------------------- | -------------------- | -------- |
+| `GEMINI_API_KEY`              | Google Gemini API key                  | -                    | ✅       |
+| `MODEL_NAME`                  | Gemini model to use                    | gemini-2.0-flash     | ✅       |
+| **Server Settings**           |                                        |                      |          |
+| `SERVER_PORT`                 | Server port number                     | 5000                 |          |
+| `DEBUG_MODE`                  | Enable debug mode                      | True                 |          |
+| **Avatar Settings**           |                                        |                      |          |
+| `AVATAR_NAME`                 | AI assistant name                      | Spectra              |          |
+| `AVATAR_FULL_NAME`            | AI assistant full name                 | Spectra Communicator |          |
+| `AVATAR_IMAGE_IDLE`           | Avatar image when idle                 | idle.png             |          |
+| `AVATAR_IMAGE_TALK`           | Avatar image when speaking             | talk.png             |          |
+| **AI Personality Settings**   |                                        |                      |          |
+| `SYSTEM_INSTRUCTION`          | AI personality and response style      | Technical, concise   |          |
+| **UI Settings**               |                                        |                      |          |
+| `TYPEWRITER_DELAY_MS`         | Typewriter effect speed (milliseconds) | 50                   |          |
+| `MOUTH_ANIMATION_INTERVAL_MS` | Lip-sync animation interval (ms)       | 150                  |          |
+| **Sound Settings**            |                                        |                      |          |
+| `BEEP_FREQUENCY_HZ`           | Beep sound frequency (Hz)              | 800                  |          |
+| `BEEP_DURATION_MS`            | Beep sound length (milliseconds)       | 50                   |          |
+| `BEEP_VOLUME`                 | Beep sound volume (0.0-1.0)            | 0.05                 |          |
+| `BEEP_VOLUME_END`             | Beep sound end volume                  | 0.01                 |          |
 
-## 技術スタック
+## Tech Stack
 
-### バックエンド
+### Backend
 
-- **Flask 3.0.0** - Web アプリケーションフレームワーク
-- **google-generativeai 0.8.3** - Gemini API 統合
-- **python-dotenv 1.0.0** - 環境変数管理
+- **Flask 3.0.0** - Web application framework
+- **google-generativeai 0.8.3** - Gemini API integration
+- **python-dotenv 1.0.0** - Environment variable management
 
-### フロントエンド
+### Frontend
 
-- **ES6 Modules** - モジュール化された JavaScript
-- **Web Audio API** - ブラウザネイティブ音響生成
-- **CSS3** - モダンなスタイリング
-- **Fira Code** - プログラミング用等幅フォント
+- **ES6 Modules** - Modularized JavaScript
+- **Web Audio API** - Browser-native sound generation
+- **CSS3** - Modern styling
+- **Fira Code** - Programming monospace font
 
-## ライセンス
+## License
 
-MIT License - 詳細は[LICENSE](LICENSE)ファイルを参照
+MIT License - See [LICENSE](LICENSE) file for details
 
-## クレジット
+## Credits
 
 Developed by Batannu
 
-### 使用技術
+### Technologies Used
 
 - Google Gemini API
 - Flask Framework
@@ -229,19 +230,19 @@ Developed by Batannu
 
 ---
 
-**注意**: このプロジェクトはエンタメ・創作目的で作成されています。本番環境での使用時は適切なセキュリティ対策を実施してください。
+**Note**: This project is created for entertainment and creative purposes. When using in production environments, please implement appropriate security measures.
 
 ---
 
-## さいごに
+## Final Notes
 
-このリポジトリは、Sito Sikino によって作成された [元のプロジェクト](https://github.com/sito-sikino/avatar-ui-core/tree/main) の改良版です。
+This repository is an improved version of the [original project](https://github.com/sito-sikino/avatar-ui-core/tree/main) created by Sito Sikino.
 
-### 変更内容
+### Changes Made
 
-- アバター画像の差し替え
-- アバターの会話設定の変更
+- Avatar image replacement
+- Avatar conversation settings modification
 
-## 謝辞
+## Acknowledgments
 
-このプロジェクトを可能にしてくださった [Sito Sikino](https://github.com/sito-sikino) の元の実装に特別な感謝を申し上げます。
+Special thanks to [Sito Sikino](https://github.com/sito-sikino) for the original implementation that made this project possible.
