@@ -1,6 +1,6 @@
 # Hatiware AI Chat
 
-クラシックなターミナル調の UI コア。チャット UI から CLI 統合まで拡張可能なプロジェクト基盤を提供します。
+クラシックなターミナル調の UI でハチワレとチャットで会話しよう！
 
 > **日本語版**: README.ja.md | **English**: [README.md](README.md)
 

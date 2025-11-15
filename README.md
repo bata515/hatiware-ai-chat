@@ -1,6 +1,6 @@
 # Htiware AI Chat
 
-A classic terminal-style UI core. Provides an extensible project foundation from chat UI to CLI integration.
+Let's chat with Hachiware in a classic terminal-style UI !
 
 > **日本語版**: [README.ja.md](README.ja.md) | **English**: README.md
 
