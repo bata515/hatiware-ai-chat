@@ -131,7 +131,7 @@ gcloud run deploy hatiware-ai-chat \
   --platform managed \
   --allow-unauthenticated \
   --region asia-northeast1 \
-  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-2.5-flash-lite,DEBUG_MODE=False"
+  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-3.1-flash-lite,DEBUG_MODE=False"
 ```
 
 💡 **パラメータの説明**:
@@ -151,7 +151,7 @@ gcloud run deploy hatiware-ai-chat \
 
 **必須設定**:
 - `GEMINI_API_KEY`: Gemini APIキー（必須）
-- `MODEL_NAME`: 使用するGeminiモデル（例: gemini-2.5-flash-lite）
+- `MODEL_NAME`: 使用するGeminiモデル（例: gemini-3.1-flash-lite）
 
 **任意設定**（デフォルト値あり）:
 - `DEBUG_MODE`: デバッグモード（本番環境: False、開発環境: True）
@@ -174,7 +174,7 @@ gcloud run deploy hatiware-ai-chat \
   --platform managed \
   --allow-unauthenticated \
   --region asia-northeast1 \
-  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-2.5-flash-lite,DEBUG_MODE=False,AVATAR_NAME=Hatiware,AVATAR_FULL_NAME=Hatiware Communicator,AVATAR_IMAGE_IDLE=hatiware_close_mouth.png,AVATAR_IMAGE_TALK=hatiware_open_mouth.png,SYSTEM_INSTRUCTION=あなたは「ちいかわ」のキャラクター「ハチワレ」のように振る舞うAIアシスタントです。例：「なんとかなれッ〜！」「大丈夫だよッ、僕がついてるからッ」「〇〇..ってこと！？」「される事あるんだｱ..「触発」..」このような感じで、ハチワレらしく元気よく、ちょっと天然で、仲間想いに応答してください！よく倒置法を使って喋ります。"
+  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-3.1-flash-lite,DEBUG_MODE=False,AVATAR_NAME=Hatiware,AVATAR_FULL_NAME=Hatiware Communicator,AVATAR_IMAGE_IDLE=hatiware_close_mouth.png,AVATAR_IMAGE_TALK=hatiware_open_mouth.png,SYSTEM_INSTRUCTION=あなたは「ちいかわ」のキャラクター「ハチワレ」のように振る舞うAIアシスタントです。例：「なんとかなれッ〜！」「大丈夫だよッ、僕がついてるからッ」「〇〇..ってこと！？」「される事あるんだｱ..「触発」..」このような感じで、ハチワレらしく元気よく、ちょっと天然で、仲間想いに応答してください！よく倒置法を使って喋ります。"
 ```
 
 💡 このコマンドは以下をカスタマイズしています：
@@ -264,7 +264,7 @@ gcloud run deploy hatiware-ai-chat \
   --platform managed \
   --region asia-northeast1 \
   --allow-unauthenticated \
-  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-2.5-flash-lite,DEBUG_MODE=False"
+  --set-env-vars "GEMINI_API_KEY=YOUR_GEMINI_API_KEY,MODEL_NAME=gemini-3.1-flash-lite,DEBUG_MODE=False"
 ```
 
 💡 `YOUR_GEMINI_API_KEY`を実際のAPIキーに置き換えてください。
@@ -365,7 +365,7 @@ gcloud run deploy hatiware-ai-chat \
   --source . \
   --platform managed \
   --region asia-northeast1 \
-  --set-env-vars "GEMINI_API_KEY=YOUR_KEY,MODEL_NAME=gemini-2.5-flash-lite,DEBUG_MODE=False"
+  --set-env-vars "GEMINI_API_KEY=YOUR_KEY,MODEL_NAME=gemini-3.1-flash-lite,DEBUG_MODE=False"
 ```
 
 💡 環境変数を変更する必要がない場合は、`--set-env-vars`を省略しても既存の環境変数は保持されます。
