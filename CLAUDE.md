@@ -58,7 +58,7 @@ All settings are managed through:
 
 Required environment variables:
 - `GEMINI_API_KEY`: Google Gemini API key
-- `MODEL_NAME`: Gemini model to use (e.g., gemini-2.0-flash)
+- `MODEL_NAME`: Gemini model to use (e.g., gemini-2.5-flash-lite)
 
 ### Key Features
 - **Terminal UI**: Green-on-black classic terminal styling

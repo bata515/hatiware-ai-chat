@@ -84,7 +84,7 @@ cp .env.example .env
 ```bash
 # 必須項目のみ変更が必要（他の項目はデフォルト値で動作）
 GEMINI_API_KEY=ここに取得したAPIキーを貼り付け
-MODEL_NAME=gemini-2.0-flash  # または gemini-2.5-pro など
+MODEL_NAME=gemini-2.5-flash-lite  # または gemini-2.5-pro など
 ```
 
 **重要**: `.env`ファイルには機密情報が含まれるため、絶対に Git にコミットしないでください。
@@ -180,7 +180,7 @@ BEEP_DURATION_MS=30     # 音の長さ（ミリ秒）
 | 変数名                        | 説明                               | デフォルト値         | 必須 |
 | ----------------------------- | ---------------------------------- | -------------------- | ---- |
 | `GEMINI_API_KEY`              | Google Gemini API キー             | -                    | ✅   |
-| `MODEL_NAME`                  | 使用する Gemini モデル             | gemini-2.0-flash     | ✅   |
+| `MODEL_NAME`                  | 使用する Gemini モデル             | gemini-2.5-flash-lite     | ✅   |
 | **サーバー設定**              |                                    |                      |      |
 | `SERVER_PORT`                 | サーバーポート番号                 | 5000                 |      |
 | `DEBUG_MODE`                  | デバッグモード有効化               | True                 |      |

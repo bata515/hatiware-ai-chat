@@ -84,7 +84,7 @@ Open the `.env` file with a text editor and configure the required items:
 ```bash
 # Only these required items need to be changed (other items work with default values)
 GEMINI_API_KEY=paste_your_obtained_api_key_here
-MODEL_NAME=gemini-2.0-flash  # or gemini-2.5-pro etc.
+MODEL_NAME=gemini-2.5-flash-lite  # or gemini-2.5-pro etc.
 ```
 
 **Important**: The `.env` file contains sensitive information, so never commit it to Git.
@@ -179,7 +179,7 @@ BEEP_DURATION_MS=30     # Sound length (milliseconds)
 | Variable Name                 | Description                            | Default Value        | Required |
 | ----------------------------- | -------------------------------------- | -------------------- | -------- |
 | `GEMINI_API_KEY`              | Google Gemini API key                  | -                    | ✅       |
-| `MODEL_NAME`                  | Gemini model to use                    | gemini-2.0-flash     | ✅       |
+| `MODEL_NAME`                  | Gemini model to use                    | gemini-2.5-flash-lite     | ✅       |
 | **Server Settings**           |                                        |                      |          |
 | `SERVER_PORT`                 | Server port number                     | 5000                 |          |
 | `DEBUG_MODE`                  | Enable debug mode                      | True                 |          |
