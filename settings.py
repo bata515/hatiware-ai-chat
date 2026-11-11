@@ -31,6 +31,15 @@ SYSTEM_INSTRUCTION = os.getenv(
     f'あなたは{AVATAR_NAME}というAIアシスタントです。技術的で直接的なスタイルで簡潔に応答してください。回答は短く要点を押さえたものにしてください。'
 )
 
+# チャット設定
+MAX_MESSAGE_LENGTH = int(os.getenv('MAX_MESSAGE_LENGTH', '2000'))  # 1メッセージの最大文字数
+MAX_HISTORY_MESSAGES = int(os.getenv('MAX_HISTORY_MESSAGES', '20'))  # 保持する会話履歴の件数
+GEMINI_TIMEOUT_SEC = int(os.getenv('GEMINI_TIMEOUT_SEC', '25'))  # Gemini API呼び出しのタイムアウト（秒）
+BLOCKED_RESPONSE_MESSAGE = os.getenv(
+    'BLOCKED_RESPONSE_MESSAGE',
+    'ごめんね、その内容にはうまく答えられないみたい。別の聞き方で試してみてね。'
+)
+
 # サーバー設定
 SERVER_PORT = int(os.getenv('SERVER_PORT', '5000'))
 DEBUG_MODE = os.getenv('DEBUG_MODE', 'True').lower() == 'true'

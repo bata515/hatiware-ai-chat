@@ -1,6 +1,8 @@
 """Webアプリケーション"""
 from flask import Flask, render_template, request, jsonify
 import google.generativeai as genai
+from google.api_core import exceptions as google_exceptions
+from google.generativeai import types as genai_types
 import settings
 import logging
 import os
@@ -40,15 +42,48 @@ def index():
     }
     return render_template('index.html', config=config)
 
+def trim_history():
+    """会話履歴を直近の件数に切り詰める（履歴が無制限に増えるのを防ぐ）"""
+    if len(chat.history) > settings.MAX_HISTORY_MESSAGES:
+        # userとmodelの発言が対になるよう、偶数件だけ残す
+        keep = settings.MAX_HISTORY_MESSAGES - (settings.MAX_HISTORY_MESSAGES % 2)
+        chat.history = chat.history[-keep:] if keep else []
+
 @app.route('/api/chat', methods=['POST'])
 def api_chat():
     """ユーザー入力を受信しAI応答を返す"""
+    # 入力チェック: 不正なリクエストはクライアント側の誤りなので400を返す
+    data = request.get_json(silent=True)
+    message = data.get('message') if isinstance(data, dict) else None
+    if not isinstance(message, str) or not message.strip():
+        return jsonify({'error': 'message is required'}), 400
+    if len(message) > settings.MAX_MESSAGE_LENGTH:
+        return jsonify({'error': 'message is too long'}), 400
+
     try:
-        message = request.json['message']
-        response = chat.send_message(message)
-        return jsonify({'response': response.text})
+        trim_history()
+        response = chat.send_message(
+            message,
+            request_options={'timeout': settings.GEMINI_TIMEOUT_SEC}
+        )
+        try:
+            text = response.text
+        except ValueError as e:
+            # 応答に本文が含まれない場合（response.textはValueErrorを送出する）
+            app.logger.warning(f"Chat response has no text: {e}")
+            text = settings.BLOCKED_RESPONSE_MESSAGE
+        return jsonify({'response': text})
+    except (genai_types.BlockedPromptException,
+            genai_types.StopCandidateException) as e:
+        # 安全フィルター等でAIが回答を生成しなかった場合。障害ではないので代替文を返す
+        app.logger.warning(f"Chat response blocked: {type(e).__name__}: {e}")
+        return jsonify({'response': settings.BLOCKED_RESPONSE_MESSAGE})
+    except google_exceptions.ResourceExhausted as e:
+        # Gemini APIの利用上限（レート制限）に達した場合
+        app.logger.warning(f"Gemini rate limit: {e}")
+        return jsonify({'error': 'Too many requests'}), 429
     except Exception as e:
-        app.logger.error(f"Chat API error: {str(e)}")
+        app.logger.exception(f"Chat API error: {type(e).__name__}: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
 @app.errorhandler(404)

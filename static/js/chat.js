@@ -36,7 +36,10 @@ export class ChatManager {
             });
             
             const data = await response.json();
-            
+            if (!response.ok) {
+                throw new Error(data.error || `HTTP ${response.status}`);
+            }
+
             // AIレスポンスをタイプライター効果で表示
             await this.addLine(data.response, 'ai');
         } catch (error) {
